@@ -2,6 +2,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Collections;
 using System.Drawing.Drawing2D;
+using Newtonsoft.Json;
 
 namespace Wizard_Color_Picker
 {
@@ -18,8 +19,9 @@ namespace Wizard_Color_Picker
             {
                 g.CopyFromScreen(0, 0, 0, 0, pictureBox1.Size);
             }
-        }
 
+            this.FormClosing += MyForm_FormClosing;
+        }
         private void pictureBox1_MouseClick_1(object sender, MouseEventArgs e)
         {
             // Get the color of the pixel that was clicked
@@ -117,7 +119,56 @@ namespace Wizard_Color_Picker
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            LoadWindowState();
+        }
 
+
+        // Speichere die Fenstergröße und -position in eine JSON-Datei
+        private void SaveWindowState()
+         {
+        // Erstelle ein Fensterzustandsobjekt mit den aktuellen Eigenschaften
+        WindowState state = new WindowState()
+        {
+            Size = this.Size,
+            Location = this.Location
+        };
+
+        // Serialisiere das Fensterzustandsobjekt in eine JSON-Zeichenfolge
+        string json = JsonConvert.SerializeObject(state);
+
+        // Schreibe die JSON-Zeichenfolge in die Datei
+        File.WriteAllText("windowstate.json", json);
+        }
+
+        // Lade die Fenstergröße und -position aus einer JSON-Datei
+        private void LoadWindowState()
+        {
+        // Prüfe, ob die Datei vorhanden ist
+        if (File.Exists("windowstate.json"))
+        {
+            // Lese die JSON-Zeichenfolge aus der Datei
+            string json = File.ReadAllText("windowstate.json");
+
+            // Deserialisiere die JSON-Zeichenfolge in ein Fensterzustandsobjekt
+            WindowState state = JsonConvert.DeserializeObject<WindowState>(json);
+
+            // Setze die Eigenschaften auf die Werte aus dem Fensterzustandsobjekt
+            this.Size = state.Size;
+            this.Location = state.Location;
+        }
+        }
+
+        // Eine Klasse, die die Fenstergröße und -position repräsentiert
+        public class WindowState
+        {
+            public Size Size { get; set; }
+        public Point Location { get; set; }
+        }
+
+        // Ereignishandler für das Formularschließen
+        private void MyForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SaveWindowState();
         }
     }
 }
