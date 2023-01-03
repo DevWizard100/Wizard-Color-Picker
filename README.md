@@ -1,4 +1,12 @@
 # Wizard-Color-Picker
 
+a tool with which you can easily identify each color on the desktop alternatively you can also import your own images to find out the color codes there 
 
-![Screenshot (3031)](https://user-images.githubusercontent.com/109457379/210351770-f7ed60e6-523f-40f2-8532-f89182d1f25e.png)
+-Open Source 
+-Free
+-compatible with Windows 10/11
+-Easy to use 
+-bugs will be fixed in the future and new features will be made available 
+-Thanks for using!
+
+![Screenshot (3036)](https://user-images.githubusercontent.com/109457379/210414312-35f0e635-eee3-4412-95ae-35633c432d55.png)
