@@ -3,13 +3,9 @@
 a tool with which you can easily identify each color on the desktop alternatively you can also import your own images to find out the color codes there 
 
 Open Source,
-
-Free
-
+Free,
 compatible with Windows 10/11,
-
 Easy to use,
-
 bugs will be fixed in the future and new features will be made available,
 
 Thanks for using!
