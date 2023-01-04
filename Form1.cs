@@ -89,6 +89,7 @@ namespace Wizard_Color_Picker
             {
                 string RgbCode = RGBCODE.Text;
                 Clipboard.SetText(RgbCode);
+                AppMessages.ShowBalloonTip(1000, "Copied!", "The color code " + RgbCode + " was copied to the clipboard", ToolTipIcon.Info);
             }
             catch
             {
@@ -97,19 +98,18 @@ namespace Wizard_Color_Picker
             
         }
 
-        private void CopyHex_Click(object sender, EventArgs e)
+        private void CopyHex_Click_1(object sender, EventArgs e)
         {
             try
             {
                 string HexCode = HEXCodeBox.Text;
                 Clipboard.SetText(HexCode);
+                AppMessages.ShowBalloonTip(1000, "Copied!", "The color code " + HexCode + " was copied to the clipboard", ToolTipIcon.Info);
             }
             catch
             {
                 MessageBox.Show("Please choose a color first");
             }
-
-          
         }
 
         private void RestartApplication_Click(object sender, EventArgs e)
@@ -169,6 +169,21 @@ namespace Wizard_Color_Picker
         private void MyForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             SaveWindowState();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Bilddateien (*.png;*.jpg)|*.png;*.jpg";
+            openFileDialog.Title = "Bild öffnen";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Code zum Einfügen des ausgewählten Bildes in die Imagebox
+                Image image = Image.FromFile(openFileDialog.FileName);
+                pictureBox1.Image = image;
+
+            }
         }
     }
 }
