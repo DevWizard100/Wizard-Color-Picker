@@ -185,5 +185,21 @@ namespace Wizard_Color_Picker
 
             }
         }
+
+        private void ContextExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void ContextRefresh_Click(object sender, EventArgs e)
+        {
+            // Capture the screen and set it as the Image for the PictureBox
+            pictureBox1.Image = new Bitmap(Screen.PrimaryScreen.Bounds.Width,
+                                           Screen.PrimaryScreen.Bounds.Height);
+            using (Graphics g = Graphics.FromImage(pictureBox1.Image))
+            {
+                g.CopyFromScreen(0, 0, 0, 0, pictureBox1.Size);
+            }
+        }
     }
 }

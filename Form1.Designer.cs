@@ -58,8 +58,12 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.AppMessages = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ContextRefresh = new System.Windows.Forms.ToolStripMenuItem();
+            this.ContextExit = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -346,9 +350,37 @@
             // 
             // AppMessages
             // 
+            this.AppMessages.ContextMenuStrip = this.contextMenuStrip1;
             this.AppMessages.Icon = ((System.Drawing.Icon)(resources.GetObject("AppMessages.Icon")));
-            this.AppMessages.Text = "WinNotify";
+            this.AppMessages.Text = "Quick Options";
             this.AppMessages.Visible = true;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ContextRefresh,
+            this.ContextExit});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            // 
+            // ContextRefresh
+            // 
+            this.ContextRefresh.BackColor = System.Drawing.SystemColors.Window;
+            this.ContextRefresh.ForeColor = System.Drawing.Color.White;
+            this.ContextRefresh.Name = "ContextRefresh";
+            this.ContextRefresh.Size = new System.Drawing.Size(180, 22);
+            this.ContextRefresh.Text = "Refresh";
+            this.ContextRefresh.Click += new System.EventHandler(this.ContextRefresh_Click);
+            // 
+            // ContextExit
+            // 
+            this.ContextExit.ForeColor = System.Drawing.Color.White;
+            this.ContextExit.Name = "ContextExit";
+            this.ContextExit.Size = new System.Drawing.Size(180, 22);
+            this.ContextExit.Text = "Exit";
+            this.ContextExit.Click += new System.EventHandler(this.ContextExit_Click);
             // 
             // Form1
             // 
@@ -391,6 +423,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -426,5 +459,8 @@
         private Label label11;
         private Label label12;
         private NotifyIcon AppMessages;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem ContextRefresh;
+        private ToolStripMenuItem ContextExit;
     }
 }
