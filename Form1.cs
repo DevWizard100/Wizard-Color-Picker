@@ -27,7 +27,7 @@ namespace Wizard_Color_Picker
             // Get the color of the pixel that was clicked
             Color pixelColor = ((Bitmap)pictureBox1.Image).GetPixel(e.X, e.Y);
 
-            // Get the ARGB value of the color as a 32-bit integer
+          
             int argb = pixelColor.ToArgb();
 
             // Convert the ARGB value to a HEX string
@@ -46,7 +46,6 @@ namespace Wizard_Color_Picker
             string hex2 = "#" + red.ToString("X2") + green.ToString("X2") + blue.ToString("X2");
 
 
-            // Update the label with the RGB and HEX values of the color
             label1.Text = "RGB: " + pixelColor.R + ", " + pixelColor.G + ", " + pixelColor.B +
                           "    HEX: " + hex2;
 
@@ -136,7 +135,7 @@ namespace Wizard_Color_Picker
         // Serialisiere das Fensterzustandsobjekt in eine JSON-Zeichenfolge
         string json = JsonConvert.SerializeObject(state);
 
-        // Schreibe die JSON-Zeichenfolge in die Datei
+        // Schreibe die Größen in die Datei
         File.WriteAllText("windowstate.json", json);
         }
 
@@ -149,23 +148,23 @@ namespace Wizard_Color_Picker
             // Lese die JSON-Zeichenfolge aus der Datei
             string json = File.ReadAllText("windowstate.json");
 
-            // Deserialisiere die JSON-Zeichenfolge in ein Fensterzustandsobjekt
+           
             WindowState state = JsonConvert.DeserializeObject<WindowState>(json);
 
-            // Setze die Eigenschaften auf die Werte aus dem Fensterzustandsobjekt
+          
             this.Size = state.Size;
             this.Location = state.Location;
         }
         }
 
-        // Eine Klasse, die die Fenstergröße und -position repräsentiert
+        // Eine Klasse für die Fenster Größe
         public class WindowState
         {
             public Size Size { get; set; }
         public Point Location { get; set; }
         }
 
-        // Ereignishandler für das Formularschließen
+        // Fenstergröße Speichern Wenn das Programm Geschlossen wird
         private void MyForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             SaveWindowState();
