@@ -21,7 +21,11 @@ namespace Wizard_Color_Picker
             }
 
             this.FormClosing += MyForm_FormClosing;
+
+            addcodetext();
+
         }
+
         private void pictureBox1_MouseClick_1(object sender, MouseEventArgs e)
         {
             // Get the color of the pixel that was clicked
@@ -199,6 +203,47 @@ namespace Wizard_Color_Picker
             {
                 g.CopyFromScreen(0, 0, 0, 0, pictureBox1.Size);
             }
+
+            addcodetext();
+        }
+
+        void addcodetext()
+        {
+            // Get the color of the pixel that was clicked
+            Color pixelColor = ((Bitmap)pictureBox1.Image).GetPixel(1, 1);
+
+            int argb = pixelColor.ToArgb();
+
+            // Convert the ARGB value to a HEX string
+            string hex = $"{pixelColor.R}{pixelColor.G}{pixelColor.B}";
+
+
+
+            string rgb = RGBCODE.Text; // Beispiel-RGB-Farbcode
+
+            // RGB-Farbwerte in Integer umwandeln
+            int red = pixelColor.R;
+            int green = pixelColor.G;
+            int blue = pixelColor.B;
+
+            // HEX-Code erstellen
+            string hex2 = "#" + red.ToString("X2") + green.ToString("X2") + blue.ToString("X2");
+
+
+            label1.Text = "RGB: " + pixelColor.R + ", " + pixelColor.G + ", " + pixelColor.B +
+                          "    HEX: " + hex2;
+
+            panel1.BackColor = pixelColor;
+
+            RGBCODE.Text = "rgb(" + pixelColor.R + ", " + pixelColor.G + ", " + pixelColor.B + ")";
+
+            HEXCodeBox.Text = hex2;
+
+
+            //RGB Feld Ausfüllen
+            RCode.Text = Convert.ToString(pixelColor.R);
+            BCode.Text = Convert.ToString(pixelColor.B);
+            GCode.Text = Convert.ToString(pixelColor.G);
         }
     }
 }
