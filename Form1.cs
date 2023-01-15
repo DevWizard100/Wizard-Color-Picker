@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Collections;
 using System.Drawing.Drawing2D;
 using Newtonsoft.Json;
+using System.Drawing.Text;
 
 namespace Wizard_Color_Picker
 {

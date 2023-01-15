@@ -71,7 +71,7 @@
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(601, 423);
+            this.pictureBox1.Size = new System.Drawing.Size(594, 406);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -363,14 +363,14 @@
             this.ContextExit});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(114, 48);
             // 
             // ContextRefresh
             // 
             this.ContextRefresh.BackColor = System.Drawing.SystemColors.Window;
             this.ContextRefresh.ForeColor = System.Drawing.Color.White;
             this.ContextRefresh.Name = "ContextRefresh";
-            this.ContextRefresh.Size = new System.Drawing.Size(180, 22);
+            this.ContextRefresh.Size = new System.Drawing.Size(113, 22);
             this.ContextRefresh.Text = "Refresh";
             this.ContextRefresh.Click += new System.EventHandler(this.ContextRefresh_Click);
             // 
@@ -378,7 +378,7 @@
             // 
             this.ContextExit.ForeColor = System.Drawing.Color.White;
             this.ContextExit.Name = "ContextExit";
-            this.ContextExit.Size = new System.Drawing.Size(180, 22);
+            this.ContextExit.Size = new System.Drawing.Size(113, 22);
             this.ContextExit.Text = "Exit";
             this.ContextExit.Click += new System.EventHandler(this.ContextExit_Click);
             // 
