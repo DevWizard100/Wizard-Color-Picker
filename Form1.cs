@@ -25,6 +25,8 @@ namespace Wizard_Color_Picker
 
             addcodetext();
 
+
+            pictureBox1.AllowDrop = true;
         }
 
         private void pictureBox1_MouseClick_1(object sender, MouseEventArgs e)
@@ -245,6 +247,33 @@ namespace Wizard_Color_Picker
             RCode.Text = Convert.ToString(pixelColor.R);
             BCode.Text = Convert.ToString(pixelColor.B);
             GCode.Text = Convert.ToString(pixelColor.G);
+        }
+
+        private void pictureBox1_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void pictureBox1_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            foreach (string file in files)
+            {
+                if (Path.GetExtension(file).ToLower() == ".jpg" ||
+                     Path.GetExtension(file).ToLower() == ".png" ||
+                     Path.GetExtension(file).ToLower() == ".bmp")
+                {
+                    pictureBox1.Image = Image.FromFile(file);
+                    break;
+                }
+            }
         }
     }
 }
