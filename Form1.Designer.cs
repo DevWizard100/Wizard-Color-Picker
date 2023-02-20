@@ -31,9 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.ColorPreviewCanvas = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.ColorDialog = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,7 +44,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.CloseApplication = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
             this.RCode = new System.Windows.Forms.TextBox();
             this.GCode = new System.Windows.Forms.TextBox();
             this.BCode = new System.Windows.Forms.TextBox();
@@ -62,6 +60,13 @@
             this.ContextRefresh = new System.Windows.Forms.ToolStripMenuItem();
             this.ContextExit = new System.Windows.Forms.ToolStripMenuItem();
             this.label13 = new System.Windows.Forms.Label();
+            this.colorlistbox = new System.Windows.Forms.ListBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.SelectedColorlbl = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.ClearSavedColorbtn = new System.Windows.Forms.Button();
+            this.ShowWelcomeScreen = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -80,17 +85,6 @@
             this.pictureBox1.DragEnter += new System.Windows.Forms.DragEventHandler(this.pictureBox1_DragEnter);
             this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick_1);
             // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(353, 474);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "RGB: 0, 0, 0   HEX: #000000";
-            // 
             // button1
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
@@ -102,15 +96,15 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // panel1
+            // ColorPreviewCanvas
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.panel1.Cursor = System.Windows.Forms.Cursors.AppStarting;
-            this.panel1.Location = new System.Drawing.Point(12, 434);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(61, 60);
-            this.panel1.TabIndex = 3;
+            this.ColorPreviewCanvas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ColorPreviewCanvas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.ColorPreviewCanvas.Cursor = System.Windows.Forms.Cursors.AppStarting;
+            this.ColorPreviewCanvas.Location = new System.Drawing.Point(12, 434);
+            this.ColorPreviewCanvas.Name = "ColorPreviewCanvas";
+            this.ColorPreviewCanvas.Size = new System.Drawing.Size(61, 60);
+            this.ColorPreviewCanvas.TabIndex = 3;
             // 
             // label2
             // 
@@ -142,10 +136,10 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(640, 51);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 15);
+            this.label3.Size = new System.Drawing.Size(35, 15);
             this.label3.TabIndex = 7;
             this.label3.Text = "Color";
             // 
@@ -153,10 +147,10 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(640, 68);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 15);
+            this.label4.Size = new System.Drawing.Size(73, 15);
             this.label4.TabIndex = 8;
             this.label4.Text = "Dialog Field:";
             // 
@@ -219,7 +213,7 @@
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Location = new System.Drawing.Point(12, 31);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(628, 405);
+            this.panel2.Size = new System.Drawing.Size(625, 405);
             this.panel2.TabIndex = 14;
             // 
             // CloseApplication
@@ -233,16 +227,6 @@
             this.CloseApplication.Text = "Close";
             this.CloseApplication.UseVisualStyleBackColor = true;
             this.CloseApplication.Click += new System.EventHandler(this.RestartApplication_Click);
-            // 
-            // label7
-            // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(270, 474);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(86, 15);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Selected Color:";
             // 
             // RCode
             // 
@@ -324,7 +308,7 @@
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.Location = new System.Drawing.Point(640, 161);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(64, 26);
+            this.button2.Size = new System.Drawing.Size(72, 26);
             this.button2.TabIndex = 26;
             this.button2.Text = "Import";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -335,6 +319,7 @@
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label11.Location = new System.Drawing.Point(640, 128);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(58, 15);
@@ -345,6 +330,7 @@
             // 
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label12.Location = new System.Drawing.Point(640, 143);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(52, 15);
@@ -390,11 +376,91 @@
             this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label13.Location = new System.Drawing.Point(270, 446);
+            this.label13.Location = new System.Drawing.Point(270, 444);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(178, 15);
             this.label13.TabIndex = 29;
             this.label13.Text = "Add images with drag and drop!";
+            // 
+            // colorlistbox
+            // 
+            this.colorlistbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.colorlistbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.colorlistbox.FormattingEnabled = true;
+            this.colorlistbox.ItemHeight = 15;
+            this.colorlistbox.Location = new System.Drawing.Point(640, 271);
+            this.colorlistbox.Name = "colorlistbox";
+            this.colorlistbox.Size = new System.Drawing.Size(69, 165);
+            this.colorlistbox.TabIndex = 30;
+            this.colorlistbox.SelectedIndexChanged += new System.EventHandler(this.colorlistbox_SelectedIndexChanged);
+            // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.button3.Location = new System.Drawing.Point(562, 471);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 31;
+            this.button3.Text = "Save";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(640, 239);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 15);
+            this.label1.TabIndex = 32;
+            this.label1.Text = "Saved Color:";
+            // 
+            // SelectedColorlbl
+            // 
+            this.SelectedColorlbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.SelectedColorlbl.AutoSize = true;
+            this.SelectedColorlbl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SelectedColorlbl.Location = new System.Drawing.Point(270, 478);
+            this.SelectedColorlbl.Name = "SelectedColorlbl";
+            this.SelectedColorlbl.Size = new System.Drawing.Size(145, 15);
+            this.SelectedColorlbl.TabIndex = 35;
+            this.SelectedColorlbl.Text = "RGB: 0, 0, 0   HEX: #000000";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(270, 463);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(86, 15);
+            this.label7.TabIndex = 36;
+            this.label7.Text = "Selected Color:";
+            // 
+            // ClearSavedColorbtn
+            // 
+            this.ClearSavedColorbtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ClearSavedColorbtn.Image = ((System.Drawing.Image)(resources.GetObject("ClearSavedColorbtn.Image")));
+            this.ClearSavedColorbtn.Location = new System.Drawing.Point(640, 209);
+            this.ClearSavedColorbtn.Name = "ClearSavedColorbtn";
+            this.ClearSavedColorbtn.Size = new System.Drawing.Size(28, 27);
+            this.ClearSavedColorbtn.TabIndex = 37;
+            this.ClearSavedColorbtn.UseVisualStyleBackColor = true;
+            this.ClearSavedColorbtn.Click += new System.EventHandler(this.ClearSavedColorbtn_Click);
+            // 
+            // ShowWelcomeScreen
+            // 
+            this.ShowWelcomeScreen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ShowWelcomeScreen.AutoSize = true;
+            this.ShowWelcomeScreen.Location = new System.Drawing.Point(569, 446);
+            this.ShowWelcomeScreen.Name = "ShowWelcomeScreen";
+            this.ShowWelcomeScreen.Size = new System.Drawing.Size(146, 19);
+            this.ShowWelcomeScreen.TabIndex = 42;
+            this.ShowWelcomeScreen.Text = "Show Welcome Screen";
+            this.ShowWelcomeScreen.UseVisualStyleBackColor = true;
+            this.ShowWelcomeScreen.CheckedChanged += new System.EventHandler(this.ShowWelcomeScreen_CheckedChanged);
             // 
             // Form1
             // 
@@ -402,6 +468,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(726, 506);
+            this.Controls.Add(this.ShowWelcomeScreen);
+            this.Controls.Add(this.ClearSavedColorbtn);
+            this.Controls.Add(this.SelectedColorlbl);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.colorlistbox);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -411,14 +484,13 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.RCode);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.ColorPreviewCanvas);
             this.Controls.Add(this.GCode);
             this.Controls.Add(this.CloseApplication);
             this.Controls.Add(this.BCode);
             this.Controls.Add(this.RGBCODE);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
@@ -427,13 +499,13 @@
             this.Controls.Add(this.ColorDialog);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.HEXCodeBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(643, 454);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Wizard Color Picker";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -447,9 +519,8 @@
         #endregion
 
         private PictureBox pictureBox1;
-        private Label label1;
         private Button button1;
-        private Panel panel1;
+        private Panel ColorPreviewCanvas;
         private Label label2;
         private Button ColorDialog;
         private Label label3;
@@ -461,7 +532,6 @@
         private Label label6;
         private Panel panel2;
         private Button CloseApplication;
-        private Label label7;
         private TextBox RCode;
         private TextBox GCode;
         private TextBox BCode;
@@ -478,5 +548,12 @@
         private ToolStripMenuItem ContextRefresh;
         private ToolStripMenuItem ContextExit;
         private Label label13;
+        private ListBox colorlistbox;
+        private Button button3;
+        private Label label1;
+        private Label SelectedColorlbl;
+        private Label label7;
+        private Button ClearSavedColorbtn;
+        private CheckBox ShowWelcomeScreen;
     }
 }
