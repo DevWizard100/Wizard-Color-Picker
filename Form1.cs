@@ -9,6 +9,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Text;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using static System.Windows.Forms.DataFormats;
+using System.Diagnostics.Tracing;
 
 namespace Wizard_Color_Picker
 {
@@ -363,19 +364,25 @@ namespace Wizard_Color_Picker
 
         private void colorlistbox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var a = colorlistbox.SelectedItem.ToString();
-            HEXCodeBox.Text = a;
+      
 
+            try
+            {
+                var a = colorlistbox.SelectedItem.ToString();
+                HEXCodeBox.Text = a;
 
-            // Verwenden Sie die ColorTranslator-Klasse, um den Hexcode in eine Color-Instanz zu konvertieren
+                // Verwenden Sie die ColorTranslator-Klasse, um den Hexcode in eine Color-Instanz zu konvertieren
 
-            Color color = ColorTranslator.FromHtml(a);
+                Color color = ColorTranslator.FromHtml(a);
 
-            ColorPreviewCanvas.BackColor = color;
+                ColorPreviewCanvas.BackColor = color;
 
-            RGBCODE.Text = color.ToString();
+                RGBCODE.Text = color.ToString();
 
-            SelectedColorlbl.Text = color.ToString();
+                SelectedColorlbl.Text = color.ToString();
+            }
+            catch { }
+
         }
 
 
@@ -385,7 +392,7 @@ namespace Wizard_Color_Picker
             // Erstellen Sie ein Objekt mit den aktuellen Status der Checkboxen
             var status = new CheckBoxStatus
             {
-                CheckBoxWelcome = ShowWelcomeScreen.Checked,
+                EnableDarkMode = EnableDarkModeCheckbox.Checked,
             };
 
             // Konvertieren Sie das Objekt in einen JSON String
@@ -407,19 +414,25 @@ namespace Wizard_Color_Picker
                 var status = JsonConvert.DeserializeObject<CheckBoxStatus>(json);
 
                 // Aktualisieren Sie die Status der Checkboxen entsprechend dem Objekt
-                ShowWelcomeScreen.Checked = status.CheckBoxWelcome;
+        
+                EnableDarkModeCheckbox.Checked = status.EnableDarkMode;
             }
         }
 
 
         void CheckboxSettings()
         {
-            // Prüfen Sie, ob die Checkbox checked ist
-            if (ShowWelcomeScreen.Checked)
+         //   // Prüfen Sie, ob die Checkbox checked ist
+         //   if (ShowWelcomeScreen.Checked)
+         //   {
+         //       Form2 myForm = new Form2();
+         //
+         //       myForm.Show();
+         //   }
+         //
+            if(EnableDarkModeCheckbox.Checked)
             {
-                Form2 myForm = new Form2();
-
-                myForm.Show();
+                ApplicationDarkMode();
             }
         }
 
@@ -432,12 +445,115 @@ namespace Wizard_Color_Picker
         {
             CheckboxSettings();
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        void ApplicationDarkMode()
+        {
+            label1.ForeColor = Color.White;
+            label2.ForeColor = Color.White;
+            label3.ForeColor = Color.White;
+            label4.ForeColor = Color.White;
+            label5.ForeColor = Color.White;
+            label6.ForeColor = Color.White;
+            label7.ForeColor = Color.White;
+            label8.ForeColor = Color.White;
+            label9.ForeColor = Color.White;
+            label10.ForeColor = Color.White;
+            label11.ForeColor = Color.White;
+            label12.ForeColor = Color.White;
+            label13.ForeColor = Color.White;
+            SelectedColorlbl.ForeColor = Color.White;
+
+            panel3.BackgroundImage = null;
+            button2.Image = null;
+            ColorDialogbtn.Image = null;
+
+            this.BackColor = Color.FromArgb(32, 32, 32);
+            this.ForeColor = Color.FromArgb(25, 25, 25);
+
+            HEXCodeBox.ForeColor = Color.White;
+            HEXCodeBox.BackColor = Color.FromArgb(51, 51, 51);
+
+            RGBCODE.ForeColor = Color.White;
+            RGBCODE.BackColor = Color.FromArgb(51, 51, 51);
+
+            CopyHex.ForeColor = Color.White;
+            CopyHex.BackColor = Color.FromArgb(51, 51, 51);
+            CopyHex.Image = null;
+            CopyHex.Text = "Copy";
+
+            CopyRgbCode.ForeColor = Color.White;
+            CopyRgbCode.BackColor = Color.FromArgb(51, 51, 51);
+            CopyRgbCode.Text = "Copy";
+            CopyRgbCode.Image = null;
+
+            Refreshbtn.ForeColor = Color.White;
+            Refreshbtn.BackColor = Color.FromArgb(51, 51, 51);
+            Refreshbtn.FlatStyle = FlatStyle.Standard;
+
+            ColorDialogbtn.ForeColor = Color.White;
+            ColorDialogbtn.BackColor = Color.FromArgb(51, 51, 51);
+
+            RCode.ForeColor = Color.White;
+            GCode.ForeColor = Color.White;
+            BCode.ForeColor = Color.White;
+
+            RCode.BackColor = Color.FromArgb(51, 51, 51);
+            GCode.BackColor = Color.FromArgb(51, 51, 51);
+            BCode.BackColor = Color.FromArgb(51, 51, 51);
+
+            ClearSavedColorbtn.ForeColor = Color.White;
+            ClearSavedColorbtn.BackColor = Color.FromArgb(51, 51, 51);
+            ClearSavedColorbtn.Text = "D";
+            ClearSavedColorbtn.Image = null;
+
+            colorlistbox.ForeColor = Color.White;
+            colorlistbox.BackColor = Color.FromArgb(32, 32, 32);
+
+            button2.ForeColor = Color.White;
+            button2.BackColor = Color.FromArgb(51, 51, 51);
+            savecolorbtn.ForeColor = Color.White;
+            savecolorbtn.BackColor = Color.FromArgb(51, 51, 51);
+            savecolorbtn.FlatStyle = FlatStyle.Standard;
+
+            CloseApplication.ForeColor = Color.White;
+            CloseApplication.BackColor = Color.FromArgb(51, 51, 51);
+            CloseApplication.FlatStyle = FlatStyle.Standard;
+            EnableDarkModeCheckbox.ForeColor = Color.White;
+        }
+
+        private void EnableDarkModeCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+     
+            if(this.BackColor == Color.White)
+            {
+                ApplicationDarkMode();
+            }
+            else
+            {
+                Application.Restart();
+            }
+          
+        }
     }
     public class CheckBoxStatus
     {
         public bool CheckBoxWelcome { get; set; }
         public bool CheckBox2 { get; set; }
         public bool CheckBox3 { get; set; }
+
+        public bool EnableDarkMode { get; set; }
     }
 }
 

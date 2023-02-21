@@ -35,4 +35,3 @@ C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Pi
 C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\obj\Release\net6.0-windows\Wizard Color Picker.pdb
 C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\obj\Release\net6.0-windows\Wizard Color Picker.genruntimeconfig.cache
 C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\obj\Release\net6.0-windows\ref\Wizard Color Picker.dll
-C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\obj\Release\net6.0-windows\Wizard_Color_Picker.Form2.resources
