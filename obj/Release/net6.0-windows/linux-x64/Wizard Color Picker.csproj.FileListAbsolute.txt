@@ -1,0 +1,20 @@
+C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\bin\Release\net6.0-windows\linux-x64\Wizard Color Picker
+C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\bin\Release\net6.0-windows\linux-x64\Wizard Color Picker.deps.json
+C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\bin\Release\net6.0-windows\linux-x64\Wizard Color Picker.runtimeconfig.json
+C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\bin\Release\net6.0-windows\linux-x64\Wizard Color Picker.dll
+C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\bin\Release\net6.0-windows\linux-x64\Wizard Color Picker.pdb
+C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\bin\Release\net6.0-windows\linux-x64\Newtonsoft.Json.dll
+C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\obj\Release\net6.0-windows\linux-x64\Wizard Color Picker.csproj.AssemblyReference.cache
+C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\obj\Release\net6.0-windows\linux-x64\Wizard_Color_Picker.Form1.resources
+C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\obj\Release\net6.0-windows\linux-x64\Wizard_Color_Picker.Properties.Resources.resources
+C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\obj\Release\net6.0-windows\linux-x64\Wizard Color Picker.csproj.GenerateResource.cache
+C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\obj\Release\net6.0-windows\linux-x64\Wizard Color Picker.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\obj\Release\net6.0-windows\linux-x64\Wizard Color Picker.AssemblyInfoInputs.cache
+C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\obj\Release\net6.0-windows\linux-x64\Wizard Color Picker.AssemblyInfo.cs
+C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\obj\Release\net6.0-windows\linux-x64\Wizard Color Picker.csproj.CoreCompileInputs.cache
+C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\obj\Release\net6.0-windows\linux-x64\Wizard Color Picker.csproj.CopyComplete
+C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\obj\Release\net6.0-windows\linux-x64\Wizard Color Picker.dll
+C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\obj\Release\net6.0-windows\linux-x64\refint\Wizard Color Picker.dll
+C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\obj\Release\net6.0-windows\linux-x64\Wizard Color Picker.pdb
+C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\obj\Release\net6.0-windows\linux-x64\Wizard Color Picker.genruntimeconfig.cache
+C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\obj\Release\net6.0-windows\linux-x64\ref\Wizard Color Picker.dll

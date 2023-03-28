@@ -1,6 +1,6 @@
 ﻿namespace Wizard_Color_Picker
 {
-    partial class Form1
+    partial class ColorPickerUI
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,8 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ColorPickerUI));
+            this.ColorPictureBox = new System.Windows.Forms.PictureBox();
+            this.PictureMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copyImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SystemTrayMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ContextRefresh = new System.Windows.Forms.ToolStripMenuItem();
+            this.ContextExit = new System.Windows.Forms.ToolStripMenuItem();
             this.Refreshbtn = new System.Windows.Forms.Button();
             this.ColorPreviewCanvas = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,14 +56,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.CopyHex = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.AppMessages = new System.Windows.Forms.NotifyIcon(this.components);
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.ContextRefresh = new System.Windows.Forms.ToolStripMenuItem();
-            this.ContextExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.AppMsg = new System.Windows.Forms.NotifyIcon(this.components);
             this.label13 = new System.Windows.Forms.Label();
             this.colorlistbox = new System.Windows.Forms.ListBox();
             this.savecolorbtn = new System.Windows.Forms.Button();
@@ -67,30 +68,77 @@
             this.label7 = new System.Windows.Forms.Label();
             this.ClearSavedColorbtn = new System.Windows.Forms.Button();
             this.EnableDarkModeCheckbox = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pastepicturebtn = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.ColorPictureBox)).BeginInit();
+            this.PictureMenu.SuspendLayout();
+            this.SystemTrayMenu.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // ColorPictureBox
             // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(594, 406);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.DragDrop += new System.Windows.Forms.DragEventHandler(this.pictureBox1_DragDrop);
-            this.pictureBox1.DragEnter += new System.Windows.Forms.DragEventHandler(this.pictureBox1_DragEnter);
-            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick_1);
+            this.ColorPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ColorPictureBox.ContextMenuStrip = this.PictureMenu;
+            this.ColorPictureBox.Location = new System.Drawing.Point(0, 0);
+            this.ColorPictureBox.Name = "ColorPictureBox";
+            this.ColorPictureBox.Size = new System.Drawing.Size(594, 406);
+            this.ColorPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.ColorPictureBox.TabIndex = 0;
+            this.ColorPictureBox.TabStop = false;
+            this.ColorPictureBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.pictureBox1_DragDrop);
+            this.ColorPictureBox.DragEnter += new System.Windows.Forms.DragEventHandler(this.pictureBox1_DragEnter);
+            this.ColorPictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick_1);
+            // 
+            // PictureMenu
+            // 
+            this.PictureMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.PictureMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyImageToolStripMenuItem});
+            this.PictureMenu.Name = "PictureMenu";
+            this.PictureMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.PictureMenu.Size = new System.Drawing.Size(139, 26);
+            // 
+            // copyImageToolStripMenuItem
+            // 
+            this.copyImageToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window;
+            this.copyImageToolStripMenuItem.Name = "copyImageToolStripMenuItem";
+            this.copyImageToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.copyImageToolStripMenuItem.Text = "Copy Image";
+            this.copyImageToolStripMenuItem.Click += new System.EventHandler(this.copyImageToolStripMenuItem_Click);
+            // 
+            // SystemTrayMenu
+            // 
+            this.SystemTrayMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.SystemTrayMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ContextRefresh,
+            this.ContextExit});
+            this.SystemTrayMenu.Name = "contextMenuStrip1";
+            this.SystemTrayMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.SystemTrayMenu.Size = new System.Drawing.Size(114, 48);
+            // 
+            // ContextRefresh
+            // 
+            this.ContextRefresh.BackColor = System.Drawing.SystemColors.Window;
+            this.ContextRefresh.ForeColor = System.Drawing.Color.White;
+            this.ContextRefresh.Name = "ContextRefresh";
+            this.ContextRefresh.Size = new System.Drawing.Size(113, 22);
+            this.ContextRefresh.Text = "Refresh";
+            this.ContextRefresh.Click += new System.EventHandler(this.ContextRefresh_Click);
+            // 
+            // ContextExit
+            // 
+            this.ContextExit.ForeColor = System.Drawing.Color.White;
+            this.ContextExit.Name = "ContextExit";
+            this.ContextExit.Size = new System.Drawing.Size(113, 22);
+            this.ContextExit.Text = "Exit";
+            this.ContextExit.Click += new System.EventHandler(this.ContextExit_Click);
             // 
             // Refreshbtn
             // 
             this.Refreshbtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.Refreshbtn.Location = new System.Drawing.Point(237, 5);
             this.Refreshbtn.Name = "Refreshbtn";
-            this.Refreshbtn.Size = new System.Drawing.Size(77, 23);
+            this.Refreshbtn.Size = new System.Drawing.Size(69, 23);
             this.Refreshbtn.TabIndex = 2;
             this.Refreshbtn.Text = "Refresh";
             this.Refreshbtn.UseVisualStyleBackColor = true;
@@ -157,6 +205,7 @@
             // CopyRgbCode
             // 
             this.CopyRgbCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CopyRgbCode.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.CopyRgbCode.Image = global::Wizard_Color_Picker.Properties.Resources.icons8_copy_171;
             this.CopyRgbCode.Location = new System.Drawing.Point(221, 472);
             this.CopyRgbCode.Name = "CopyRgbCode";
@@ -211,7 +260,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.AutoScroll = true;
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.ColorPictureBox);
             this.panel2.Location = new System.Drawing.Point(12, 31);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(625, 405);
@@ -232,7 +281,7 @@
             // RCode
             // 
             this.RCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.RCode.Location = new System.Drawing.Point(482, 5);
+            this.RCode.Location = new System.Drawing.Point(492, 5);
             this.RCode.Name = "RCode";
             this.RCode.Size = new System.Drawing.Size(30, 23);
             this.RCode.TabIndex = 18;
@@ -240,7 +289,7 @@
             // GCode
             // 
             this.GCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.GCode.Location = new System.Drawing.Point(536, 5);
+            this.GCode.Location = new System.Drawing.Point(542, 5);
             this.GCode.Name = "GCode";
             this.GCode.Size = new System.Drawing.Size(30, 23);
             this.GCode.TabIndex = 19;
@@ -257,7 +306,7 @@
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(464, 9);
+            this.label8.Location = new System.Drawing.Point(474, 9);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(17, 15);
             this.label8.TabIndex = 21;
@@ -267,7 +316,7 @@
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(518, 9);
+            this.label9.Location = new System.Drawing.Point(524, 9);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(18, 15);
             this.label9.TabIndex = 22;
@@ -286,6 +335,7 @@
             // CopyHex
             // 
             this.CopyHex.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CopyHex.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.CopyHex.Image = global::Wizard_Color_Picker.Properties.Resources.icons8_copy_171;
             this.CopyHex.Location = new System.Drawing.Point(221, 444);
             this.CopyHex.Name = "CopyHex";
@@ -294,14 +344,6 @@
             this.CopyHex.UseVisualStyleBackColor = true;
             this.CopyHex.Click += new System.EventHandler(this.CopyHex_Click_1);
             // 
-            // panel3
-            // 
-            this.panel3.BackgroundImage = global::Wizard_Color_Picker.Properties.Resources.refresh_FILL0_wght400_GRAD0_opsz16;
-            this.panel3.Location = new System.Drawing.Point(317, 8);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(17, 17);
-            this.panel3.TabIndex = 25;
-            // 
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -309,7 +351,7 @@
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.Location = new System.Drawing.Point(640, 161);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(72, 26);
+            this.button2.Size = new System.Drawing.Size(69, 26);
             this.button2.TabIndex = 26;
             this.button2.Text = "Import";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -338,39 +380,12 @@
             this.label12.TabIndex = 28;
             this.label12.Text = "pictures:";
             // 
-            // AppMessages
+            // AppMsg
             // 
-            this.AppMessages.ContextMenuStrip = this.contextMenuStrip1;
-            this.AppMessages.Icon = ((System.Drawing.Icon)(resources.GetObject("AppMessages.Icon")));
-            this.AppMessages.Text = "Quick Options";
-            this.AppMessages.Visible = true;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ContextRefresh,
-            this.ContextExit});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(114, 48);
-            // 
-            // ContextRefresh
-            // 
-            this.ContextRefresh.BackColor = System.Drawing.SystemColors.Window;
-            this.ContextRefresh.ForeColor = System.Drawing.Color.White;
-            this.ContextRefresh.Name = "ContextRefresh";
-            this.ContextRefresh.Size = new System.Drawing.Size(113, 22);
-            this.ContextRefresh.Text = "Refresh";
-            this.ContextRefresh.Click += new System.EventHandler(this.ContextRefresh_Click);
-            // 
-            // ContextExit
-            // 
-            this.ContextExit.ForeColor = System.Drawing.Color.White;
-            this.ContextExit.Name = "ContextExit";
-            this.ContextExit.Size = new System.Drawing.Size(113, 22);
-            this.ContextExit.Text = "Exit";
-            this.ContextExit.Click += new System.EventHandler(this.ContextExit_Click);
+            this.AppMsg.ContextMenuStrip = this.SystemTrayMenu;
+            this.AppMsg.Icon = ((System.Drawing.Icon)(resources.GetObject("AppMsg.Icon")));
+            this.AppMsg.Text = "Quick Options";
+            this.AppMsg.Visible = true;
             // 
             // label13
             // 
@@ -455,20 +470,33 @@
             // 
             this.EnableDarkModeCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.EnableDarkModeCheckbox.AutoSize = true;
-            this.EnableDarkModeCheckbox.Location = new System.Drawing.Point(593, 449);
+            this.EnableDarkModeCheckbox.Location = new System.Drawing.Point(631, 449);
             this.EnableDarkModeCheckbox.Name = "EnableDarkModeCheckbox";
-            this.EnableDarkModeCheckbox.Size = new System.Drawing.Size(122, 19);
+            this.EnableDarkModeCheckbox.Size = new System.Drawing.Size(84, 19);
             this.EnableDarkModeCheckbox.TabIndex = 44;
-            this.EnableDarkModeCheckbox.Text = "Enable Dark Mode";
+            this.EnableDarkModeCheckbox.Text = "Dark Mode";
             this.EnableDarkModeCheckbox.UseVisualStyleBackColor = true;
             this.EnableDarkModeCheckbox.CheckedChanged += new System.EventHandler(this.EnableDarkModeCheckbox_CheckedChanged);
             // 
-            // Form1
+            // pastepicturebtn
+            // 
+            this.pastepicturebtn.Cursor = System.Windows.Forms.Cursors.AppStarting;
+            this.pastepicturebtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.pastepicturebtn.Location = new System.Drawing.Point(312, 5);
+            this.pastepicturebtn.Name = "pastepicturebtn";
+            this.pastepicturebtn.Size = new System.Drawing.Size(45, 23);
+            this.pastepicturebtn.TabIndex = 45;
+            this.pastepicturebtn.Text = "Paste";
+            this.pastepicturebtn.UseVisualStyleBackColor = true;
+            this.pastepicturebtn.Click += new System.EventHandler(this.pastepicturebtn_Click);
+            // 
+            // ColorPickerUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(726, 506);
+            this.Controls.Add(this.pastepicturebtn);
             this.Controls.Add(this.EnableDarkModeCheckbox);
             this.Controls.Add(this.ClearSavedColorbtn);
             this.Controls.Add(this.SelectedColorlbl);
@@ -480,7 +508,6 @@
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.CopyHex);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.RCode);
@@ -503,15 +530,17 @@
             this.Controls.Add(this.HEXCodeBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(643, 454);
-            this.Name = "Form1";
+            this.Name = "ColorPickerUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Wizard Color Picker";
+            this.Text = "Wizard Color Picker  |  Start";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ColorPickerUI_KeyPress);
+            ((System.ComponentModel.ISupportInitialize)(this.ColorPictureBox)).EndInit();
+            this.PictureMenu.ResumeLayout(false);
+            this.SystemTrayMenu.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -519,7 +548,7 @@
 
         #endregion
 
-        private PictureBox pictureBox1;
+        private PictureBox ColorPictureBox;
         private Button Refreshbtn;
         private Panel ColorPreviewCanvas;
         private Label label2;
@@ -540,12 +569,11 @@
         private Label label9;
         private Label label10;
         private Button CopyHex;
-        private Panel panel3;
         private Button button2;
         private Label label11;
         private Label label12;
-        private NotifyIcon AppMessages;
-        private ContextMenuStrip contextMenuStrip1;
+        private NotifyIcon AppMsg;
+        private ContextMenuStrip SystemTrayMenu;
         private ToolStripMenuItem ContextRefresh;
         private ToolStripMenuItem ContextExit;
         private Label label13;
@@ -556,5 +584,8 @@
         private Label label7;
         private Button ClearSavedColorbtn;
         private CheckBox EnableDarkModeCheckbox;
+        private Button pastepicturebtn;
+        private ContextMenuStrip PictureMenu;
+        private ToolStripMenuItem copyImageToolStripMenuItem;
     }
 }

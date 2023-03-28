@@ -5,42 +5,39 @@ using System.Drawing.Drawing2D;
 using Newtonsoft.Json;
 using System.Drawing.Text;
 using System.Security.Cryptography.X509Certificates;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Text;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
-using static System.Windows.Forms.DataFormats;
 using System.Diagnostics.Tracing;
 
 namespace Wizard_Color_Picker
 {
-    public partial class Form1 : Form
+    public partial class ColorPickerUI : Form
     {
         // Der Pfad der JSON-Datei
         private string jsonFilePath = "Settings/SavedColorCodes.json";
-        public Form1()
+        public ColorPickerUI()
         {
             InitializeComponent();
 
             // Capture the screen and set it as the Image for the PictureBox
-            pictureBox1.Image = new Bitmap(Screen.PrimaryScreen.Bounds.Width,
+            ColorPictureBox.Image = new Bitmap(Screen.PrimaryScreen.Bounds.Width,
                                            Screen.PrimaryScreen.Bounds.Height);
-            using (Graphics g = Graphics.FromImage(pictureBox1.Image))
+            using (Graphics g = Graphics.FromImage(ColorPictureBox.Image))
             {
-                g.CopyFromScreen(0, 0, 0, 0, pictureBox1.Size);
+                g.CopyFromScreen(0, 0, 0, 0, ColorPictureBox.Size);
             }
-
+            
+            //save Window Postion
             this.FormClosing += MyForm_FormClosing;
-
             addcodetext();
-
-
-            pictureBox1.AllowDrop = true;
+            ColorPictureBox.AllowDrop = true;
         }
 
         private void pictureBox1_MouseClick_1(object sender, MouseEventArgs e)
         {
-            // Get the color of the pixel that was clicked
-            Color pixelColor = ((Bitmap)pictureBox1.Image).GetPixel(e.X, e.Y);
+                // Get the color of the pixel that was clicked
+                Color pixelColor = ((Bitmap)ColorPictureBox.Image).GetPixel(e.X, e.Y);
+         
+            
 
           
             int argb = pixelColor.ToArgb();
@@ -75,6 +72,8 @@ namespace Wizard_Color_Picker
             RCode.Text = Convert.ToString(pixelColor.R);
             BCode.Text = Convert.ToString(pixelColor.B);
             GCode.Text = Convert.ToString(pixelColor.G);
+
+            this.Text = ("Wizard Color Picker  |  " + hex2);
         }
 
     
@@ -132,7 +131,7 @@ namespace Wizard_Color_Picker
             {
                 string RgbCode = RGBCODE.Text;
                 Clipboard.SetText(RgbCode);
-                AppMessages.ShowBalloonTip(1000, "Copied!", "The color code " + RgbCode + " was copied to the clipboard", ToolTipIcon.Info);
+                AppMsg.ShowBalloonTip(1000, "Copied!", "The color code " + RgbCode + " was copied to the clipboard", ToolTipIcon.Info);
             }
             catch
             {
@@ -147,12 +146,19 @@ namespace Wizard_Color_Picker
             {
                 string HexCode = HEXCodeBox.Text;
                 Clipboard.SetText(HexCode);
-                AppMessages.ShowBalloonTip(1000, "Copied!", "The color code " + HexCode + " was copied to the clipboard", ToolTipIcon.Info);
+                AppMsg.ShowBalloonTip(1000, "Copied!", "The color code " + HexCode + " was copied to the clipboard", ToolTipIcon.Info);
+                AppMsg.BalloonTipClicked += new EventHandler(Messagebutton);
+
             }
             catch
             {
                 MessageBox.Show("Please choose a color first");
             }
+        }
+
+        private void Messagebutton(object sender, EventArgs e)
+        {
+            MessageBox.Show("The Hex Code was copied");
         }
 
         private void RestartApplication_Click(object sender, EventArgs e)
@@ -165,8 +171,6 @@ namespace Wizard_Color_Picker
             LoadWindowState();
 
             LoadCheckBoxStatus();
-         
-
             // Überprüfen Sie, ob die JSON-Datei existiert
             if (File.Exists(jsonFilePath))
             {
@@ -180,7 +184,6 @@ namespace Wizard_Color_Picker
                 colorlistbox.Items.AddRange(items.ToArray());
             }
         }
-
 
         // Speichere die Fenstergröße und -position in eine JSON-Datei
         private void SaveWindowState()
@@ -240,7 +243,7 @@ namespace Wizard_Color_Picker
             {
                 // Code zum Einfügen des ausgewählten Bildes in die Imagebox
                 Image image = Image.FromFile(openFileDialog.FileName);
-                pictureBox1.Image = image;
+                ColorPictureBox.Image = image;
 
             }
         }
@@ -253,11 +256,11 @@ namespace Wizard_Color_Picker
         private void ContextRefresh_Click(object sender, EventArgs e)
         {
             // Capture the screen and set it as the Image for the PictureBox
-            pictureBox1.Image = new Bitmap(Screen.PrimaryScreen.Bounds.Width,
+            ColorPictureBox.Image = new Bitmap(Screen.PrimaryScreen.Bounds.Width,
                                            Screen.PrimaryScreen.Bounds.Height);
-            using (Graphics g = Graphics.FromImage(pictureBox1.Image))
+            using (Graphics g = Graphics.FromImage(ColorPictureBox.Image))
             {
-                g.CopyFromScreen(0, 0, 0, 0, pictureBox1.Size);
+                g.CopyFromScreen(0, 0, 0, 0, ColorPictureBox.Size);
             }
 
             addcodetext();
@@ -266,7 +269,7 @@ namespace Wizard_Color_Picker
         void addcodetext()
         {
             // Get the color of the pixel that was clicked
-            Color pixelColor = ((Bitmap)pictureBox1.Image).GetPixel(1, 1);
+            Color pixelColor = ((Bitmap)ColorPictureBox.Image).GetPixel(1, 1);
 
             int argb = pixelColor.ToArgb();
 
@@ -323,7 +326,7 @@ namespace Wizard_Color_Picker
                      Path.GetExtension(file).ToLower() == ".png" ||
                      Path.GetExtension(file).ToLower() == ".bmp")
                 {
-                    pictureBox1.Image = Image.FromFile(file);
+                    ColorPictureBox.Image = Image.FromFile(file);
                     break;
                 }
             }
@@ -364,8 +367,6 @@ namespace Wizard_Color_Picker
 
         private void colorlistbox_SelectedIndexChanged(object sender, EventArgs e)
         {
-      
-
             try
             {
                 var a = colorlistbox.SelectedItem.ToString();
@@ -380,6 +381,8 @@ namespace Wizard_Color_Picker
                 RGBCODE.Text = color.ToString();
 
                 SelectedColorlbl.Text = color.ToString();
+
+                this.Text = ("Wizard Color Picker  |  " + HEXCodeBox.Text);
             }
             catch { }
 
@@ -458,6 +461,26 @@ namespace Wizard_Color_Picker
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         void ApplicationDarkMode()
         {
             label1.ForeColor = Color.White;
@@ -475,7 +498,7 @@ namespace Wizard_Color_Picker
             label13.ForeColor = Color.White;
             SelectedColorlbl.ForeColor = Color.White;
 
-            panel3.BackgroundImage = null;
+        
             button2.Image = null;
             ColorDialogbtn.Image = null;
 
@@ -531,6 +554,10 @@ namespace Wizard_Color_Picker
             CloseApplication.BackColor = Color.FromArgb(51, 51, 51);
             CloseApplication.FlatStyle = FlatStyle.Standard;
             EnableDarkModeCheckbox.ForeColor = Color.White;
+            pastepicturebtn.FlatStyle = FlatStyle.Standard;
+            pastepicturebtn.ForeColor = Color.White;
+            pastepicturebtn.BackColor = Color.FromArgb(51, 51, 51);
+         
         }
 
         private void EnableDarkModeCheckbox_CheckedChanged(object sender, EventArgs e)
@@ -545,6 +572,32 @@ namespace Wizard_Color_Picker
                 Application.Restart();
             }
           
+        }
+
+        private void pastepicturebtn_Click(object sender, EventArgs e)
+        {
+            if(Clipboard.GetImage() == null)
+            {
+                MessageBox.Show("There is no image on the clipboard!", "Paste Info");
+            }
+            else
+            {
+                ColorPictureBox.Image = Clipboard.GetImage();
+            }
+
+            
+        }
+
+        private void copyImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetImage(ColorPictureBox.Image);
+        }
+
+
+        private void ColorPickerUI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            MessageBox.Show("test");
         }
     }
     public class CheckBoxStatus

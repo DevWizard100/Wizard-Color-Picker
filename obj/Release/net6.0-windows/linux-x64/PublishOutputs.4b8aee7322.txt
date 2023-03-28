@@ -1,0 +1,6 @@
+C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Programm Folder\Wizard Color Picker\Wizard Color Picker
+C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Programm Folder\Wizard Color Picker\Wizard Color Picker.dll
+C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Programm Folder\Wizard Color Picker\Wizard Color Picker.deps.json
+C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Programm Folder\Wizard Color Picker\Wizard Color Picker.runtimeconfig.json
+C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Programm Folder\Wizard Color Picker\Wizard Color Picker.pdb
+C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Programm Folder\Wizard Color Picker\Newtonsoft.Json.dll

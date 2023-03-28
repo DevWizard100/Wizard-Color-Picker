@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "q6hKBzIO+X1VPAnj2+wzvMgaZiLQcz1AccIyA0x93KTwVa9PWaFSNCu1Dh2ySrnahNbMp98cPJe7YJvwtUUJhw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Kunde\\Desktop\\C# Aktuelle Software Projekte\\Source Code\\Wizard Color Picker\\Wizard-Color-Picker\\Wizard Color Picker.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Kunde\\.nuget\\packages\\newtonsoft.json\\13.0.3-beta1\\newtonsoft.json.13.0.3-beta1.nupkg.sha512",
+    "C:\\Users\\Kunde\\.nuget\\packages\\microsoft.netcore.app.host.linux-x64\\6.0.13\\microsoft.netcore.app.host.linux-x64.6.0.13.nupkg.sha512"
+  ],
+  "logs": []
+}

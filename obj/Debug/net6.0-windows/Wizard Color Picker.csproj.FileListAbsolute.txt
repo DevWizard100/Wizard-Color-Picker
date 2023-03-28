@@ -35,7 +35,6 @@ C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Pi
 C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard Color Picker\obj\Debug\net6.0-windows\Wizard Color Picker.genruntimeconfig.cache
 C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard Color Picker\obj\Debug\net6.0-windows\ref\Wizard Color Picker.dll
 C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\obj\Debug\net6.0-windows\Wizard Color Picker.csproj.AssemblyReference.cache
-C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\obj\Debug\net6.0-windows\Wizard_Color_Picker.Form1.resources
 C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\obj\Debug\net6.0-windows\Wizard_Color_Picker.Properties.Resources.resources
 C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\obj\Debug\net6.0-windows\Wizard Color Picker.csproj.GenerateResource.cache
 C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\obj\Debug\net6.0-windows\Wizard Color Picker.GeneratedMSBuildEditorConfig.editorconfig
@@ -54,3 +53,4 @@ C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Pi
 C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\obj\Debug\net6.0-windows\ref\Wizard Color Picker.dll
 C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
 C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\obj\Debug\net6.0-windows\Wizard Color Picker.csproj.CopyComplete
+C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\obj\Debug\net6.0-windows\Wizard_Color_Picker.ColorPickerUI.resources

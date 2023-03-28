@@ -4,7 +4,7 @@
     <_LastSelectedProfileId>C:\Users\Kunde\Desktop\C# Aktuelle Software Projekte\Source Code\Wizard Color Picker\Wizard-Color-Picker\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Update="Form1.cs">
+    <Compile Update="ColorPickerUI.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
