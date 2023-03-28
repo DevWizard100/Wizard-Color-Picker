@@ -10,6 +10,6 @@ bugs will be fixed in the future and new features will be made available,
 
 NEW: Add Pictures with Drag and Drop!
 
-![Screenshot (3036)](https://user-images.githubusercontent.com/109457379/210414312-35f0e635-eee3-4412-95ae-35633c432d55.png)
+![Screenshot (3156)](https://user-images.githubusercontent.com/109457379/220417899-65d5ae28-e284-406b-b8e3-cdfc0ca43d78.png)
 
 Thanks for using!
