@@ -67,8 +67,10 @@
             this.SelectedColorlbl = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.ClearSavedColorbtn = new System.Windows.Forms.Button();
-            this.EnableDarkModeCheckbox = new System.Windows.Forms.CheckBox();
             this.pastepicturebtn = new System.Windows.Forms.Button();
+            this.DelColorListbtn = new System.Windows.Forms.Button();
+            this.Settingsbtn = new System.Windows.Forms.Button();
+            this.AppVersionlbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ColorPictureBox)).BeginInit();
             this.PictureMenu.SuspendLayout();
             this.SystemTrayMenu.SuspendLayout();
@@ -466,18 +468,6 @@
             this.ClearSavedColorbtn.UseVisualStyleBackColor = true;
             this.ClearSavedColorbtn.Click += new System.EventHandler(this.ClearSavedColorbtn_Click);
             // 
-            // EnableDarkModeCheckbox
-            // 
-            this.EnableDarkModeCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.EnableDarkModeCheckbox.AutoSize = true;
-            this.EnableDarkModeCheckbox.Location = new System.Drawing.Point(631, 449);
-            this.EnableDarkModeCheckbox.Name = "EnableDarkModeCheckbox";
-            this.EnableDarkModeCheckbox.Size = new System.Drawing.Size(84, 19);
-            this.EnableDarkModeCheckbox.TabIndex = 44;
-            this.EnableDarkModeCheckbox.Text = "Dark Mode";
-            this.EnableDarkModeCheckbox.UseVisualStyleBackColor = true;
-            this.EnableDarkModeCheckbox.CheckedChanged += new System.EventHandler(this.EnableDarkModeCheckbox_CheckedChanged);
-            // 
             // pastepicturebtn
             // 
             this.pastepicturebtn.Cursor = System.Windows.Forms.Cursors.AppStarting;
@@ -490,14 +480,50 @@
             this.pastepicturebtn.UseVisualStyleBackColor = true;
             this.pastepicturebtn.Click += new System.EventHandler(this.pastepicturebtn_Click);
             // 
+            // DelColorListbtn
+            // 
+            this.DelColorListbtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.DelColorListbtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.DelColorListbtn.Location = new System.Drawing.Point(674, 209);
+            this.DelColorListbtn.Name = "DelColorListbtn";
+            this.DelColorListbtn.Size = new System.Drawing.Size(35, 27);
+            this.DelColorListbtn.TabIndex = 46;
+            this.DelColorListbtn.Text = "DEL";
+            this.DelColorListbtn.UseVisualStyleBackColor = true;
+            this.DelColorListbtn.Click += new System.EventHandler(this.DelColorListbtn_Click);
+            // 
+            // Settingsbtn
+            // 
+            this.Settingsbtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Settingsbtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.Settingsbtn.Location = new System.Drawing.Point(640, 5);
+            this.Settingsbtn.Name = "Settingsbtn";
+            this.Settingsbtn.Size = new System.Drawing.Size(69, 26);
+            this.Settingsbtn.TabIndex = 47;
+            this.Settingsbtn.Text = "Settings";
+            this.Settingsbtn.UseVisualStyleBackColor = true;
+            this.Settingsbtn.Click += new System.EventHandler(this.Settingsbtn_Click);
+            // 
+            // AppVersionlbl
+            // 
+            this.AppVersionlbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.AppVersionlbl.AutoSize = true;
+            this.AppVersionlbl.Location = new System.Drawing.Point(612, 453);
+            this.AppVersionlbl.Name = "AppVersionlbl";
+            this.AppVersionlbl.Size = new System.Drawing.Size(103, 15);
+            this.AppVersionlbl.TabIndex = 48;
+            this.AppVersionlbl.Text = "App Version v1.0.4";
+            // 
             // ColorPickerUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(726, 506);
+            this.Controls.Add(this.AppVersionlbl);
+            this.Controls.Add(this.Settingsbtn);
+            this.Controls.Add(this.DelColorListbtn);
             this.Controls.Add(this.pastepicturebtn);
-            this.Controls.Add(this.EnableDarkModeCheckbox);
             this.Controls.Add(this.ClearSavedColorbtn);
             this.Controls.Add(this.SelectedColorlbl);
             this.Controls.Add(this.label7);
@@ -535,7 +561,6 @@
             this.Text = "Wizard Color Picker  |  Start";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ColorPickerUI_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.ColorPictureBox)).EndInit();
             this.PictureMenu.ResumeLayout(false);
             this.SystemTrayMenu.ResumeLayout(false);
@@ -583,9 +608,11 @@
         private Label SelectedColorlbl;
         private Label label7;
         private Button ClearSavedColorbtn;
-        private CheckBox EnableDarkModeCheckbox;
         private Button pastepicturebtn;
         private ContextMenuStrip PictureMenu;
         private ToolStripMenuItem copyImageToolStripMenuItem;
+        private Button DelColorListbtn;
+        private Button Settingsbtn;
+        private Label AppVersionlbl;
     }
 }

@@ -12,7 +12,7 @@ namespace Wizard_Color_Picker
 {
     public partial class ColorPickerUI : Form
     {
-        // Der Pfad der JSON-Datei
+        // Der Pfad der JSON-Datei für alle gespeicherten Farb codes
         private string jsonFilePath = "Settings/SavedColorCodes.json";
         public ColorPickerUI()
         {
@@ -30,21 +30,26 @@ namespace Wizard_Color_Picker
             this.FormClosing += MyForm_FormClosing;
             addcodetext();
             ColorPictureBox.AllowDrop = true;
+
+            // Opacity-Einstellung aus den Anwendungseinstellungen laden
+            this.Opacity = Properties.Settings.Default.Opacity;
+
+            if(Properties.Settings.Default.DarkMode == 1)
+            {
+                ApplicationDarkMode();
+            }
+
         }
 
         private void pictureBox1_MouseClick_1(object sender, MouseEventArgs e)
         {
                 // Get the color of the pixel that was clicked
                 Color pixelColor = ((Bitmap)ColorPictureBox.Image).GetPixel(e.X, e.Y);
-         
-            
-
-          
+       
             int argb = pixelColor.ToArgb();
 
             // Convert the ARGB value to a HEX string
             string hex = $"{pixelColor.R}{pixelColor.G}{pixelColor.B}";
-
 
 
             string rgb = RGBCODE.Text; // Beispiel-RGB-Farbcode
@@ -76,27 +81,17 @@ namespace Wizard_Color_Picker
             this.Text = ("Wizard Color Picker  |  " + hex2);
         }
 
-    
+
 
         private async void button1_Click(object sender, EventArgs e)
         {
-          this.Hide();
-           System.Threading.Thread.Sleep(300);
-           Application.Restart();
+            this.Hide();
+            System.Threading.Thread.Sleep(300);
+            Application.Restart();
         }
 
         private void ColorDialog_Click(object sender, EventArgs e)
         {
-         //  ColorDialog colorDialog = new ColorDialog();
-         //  colorDialog.FullOpen = true;
-         //
-         //  // Zeigt den Farbauswahl-Dialog an und speichert die ausgewählte Farbe
-         //  if (colorDialog.ShowDialog() == DialogResult.OK)
-         //  {
-         //      // Verwenden Sie die ausgewählte Farbe hier
-         //      Color selectedColor = colorDialog.Color;
-         //  }
-
             // Create a new ColorDialog component
             ColorDialog MyDialog = new ColorDialog();
 
@@ -114,8 +109,6 @@ namespace Wizard_Color_Picker
 
                 SelectedColorlbl.Text = MyDialog.Color.ToString();
             }
-
-
 
         }
 
@@ -170,7 +163,7 @@ namespace Wizard_Color_Picker
         {
             LoadWindowState();
 
-            LoadCheckBoxStatus();
+        
             // Überprüfen Sie, ob die JSON-Datei existiert
             if (File.Exists(jsonFilePath))
             {
@@ -340,8 +333,6 @@ namespace Wizard_Color_Picker
             {
                 colorlistbox.Items.Add(HEXCodeBox.Text);
             }
-
-           
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -352,7 +343,12 @@ namespace Wizard_Color_Picker
             // Schreiben Sie die JSON-Zeichenfolge in eine Datei
             File.WriteAllText(jsonFilePath, jsonString);
 
-            SaveCheckBoxStatus();
+      
+
+            // Opacity-Einstellung in den Anwendungseinstellungen speichern
+            Properties.Settings.Default.Opacity = this.Opacity;
+            Properties.Settings.Default.Save();
+
         }
 
         private void ClearSavedColorbtn_Click(object sender, EventArgs e)
@@ -363,6 +359,11 @@ namespace Wizard_Color_Picker
             {
                 colorlistbox.Items.Clear();
             }
+        }
+
+        public void ClearListBox()
+        {
+            colorlistbox.Items.Clear();
         }
 
         private void colorlistbox_SelectedIndexChanged(object sender, EventArgs e)
@@ -385,69 +386,21 @@ namespace Wizard_Color_Picker
                 this.Text = ("Wizard Color Picker  |  " + HEXCodeBox.Text);
             }
             catch { }
-
         }
 
-
-
-        private void SaveCheckBoxStatus()
+        private void pastepicturebtn_Click(object sender, EventArgs e)
         {
-            // Erstellen Sie ein Objekt mit den aktuellen Status der Checkboxen
-            var status = new CheckBoxStatus
+            if (Clipboard.GetImage() == null)
             {
-                EnableDarkMode = EnableDarkModeCheckbox.Checked,
-            };
-
-            // Konvertieren Sie das Objekt in einen JSON String
-            var json = JsonConvert.SerializeObject(status);
-
-            // Speichern Sie den JSON String in einer Datei
-            File.WriteAllText("Settings/status.json", json);
-        }
-
-        private void LoadCheckBoxStatus()
-        {
-            // Prüfen Sie, ob die Datei existiert
-            if (File.Exists("Settings/status.json"))
+                MessageBox.Show("There is no image on the clipboard!", "Paste Info");
+            }
+            else
             {
-                // Lesen Sie den JSON String aus der Datei
-                var json = File.ReadAllText("Settings/status.json");
-
-                // Konvertieren Sie den JSON String in ein Objekt
-                var status = JsonConvert.DeserializeObject<CheckBoxStatus>(json);
-
-                // Aktualisieren Sie die Status der Checkboxen entsprechend dem Objekt
-        
-                EnableDarkModeCheckbox.Checked = status.EnableDarkMode;
+                ColorPictureBox.Image = Clipboard.GetImage();
             }
         }
 
 
-        void CheckboxSettings()
-        {
-         //   // Prüfen Sie, ob die Checkbox checked ist
-         //   if (ShowWelcomeScreen.Checked)
-         //   {
-         //       Form2 myForm = new Form2();
-         //
-         //       myForm.Show();
-         //   }
-         //
-            if(EnableDarkModeCheckbox.Checked)
-            {
-                ApplicationDarkMode();
-            }
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            CheckboxSettings();
-        }
-
-        private void ShowWelcomeScreen_CheckedChanged(object sender, EventArgs e)
-        {
-            CheckboxSettings();
-        }
 
 
 
@@ -455,33 +408,7 @@ namespace Wizard_Color_Picker
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        void ApplicationDarkMode()
+        public void ApplicationDarkMode()
         {
             label1.ForeColor = Color.White;
             label2.ForeColor = Color.White;
@@ -497,95 +424,79 @@ namespace Wizard_Color_Picker
             label12.ForeColor = Color.White;
             label13.ForeColor = Color.White;
             SelectedColorlbl.ForeColor = Color.White;
-
-        
+            Settingsbtn.ForeColor = Color.White;
+            Settingsbtn.BackColor = Color.FromArgb(51, 51, 51);
+            Settingsbtn.FlatStyle = FlatStyle.Standard;
+            DelColorListbtn.ForeColor = Color.White;
+            DelColorListbtn.BackColor = Color.FromArgb(51, 51, 51);
+            DelColorListbtn.FlatStyle = FlatStyle.Standard;
+            ColorPictureBox.BackColor = Color.FromArgb(51, 51, 51);
+            panel2.BackColor = Color.FromArgb(51, 51, 51); 
+            AppVersionlbl.ForeColor = Color.White;
             button2.Image = null;
             ColorDialogbtn.Image = null;
-
             this.BackColor = Color.FromArgb(32, 32, 32);
             this.ForeColor = Color.FromArgb(25, 25, 25);
-
             HEXCodeBox.ForeColor = Color.White;
             HEXCodeBox.BackColor = Color.FromArgb(51, 51, 51);
-
             RGBCODE.ForeColor = Color.White;
             RGBCODE.BackColor = Color.FromArgb(51, 51, 51);
-
             CopyHex.ForeColor = Color.White;
             CopyHex.BackColor = Color.FromArgb(51, 51, 51);
             CopyHex.Image = null;
             CopyHex.Text = "Copy";
-
             CopyRgbCode.ForeColor = Color.White;
             CopyRgbCode.BackColor = Color.FromArgb(51, 51, 51);
             CopyRgbCode.Text = "Copy";
             CopyRgbCode.Image = null;
-
             Refreshbtn.ForeColor = Color.White;
             Refreshbtn.BackColor = Color.FromArgb(51, 51, 51);
             Refreshbtn.FlatStyle = FlatStyle.Standard;
-
             ColorDialogbtn.ForeColor = Color.White;
             ColorDialogbtn.BackColor = Color.FromArgb(51, 51, 51);
-
             RCode.ForeColor = Color.White;
             GCode.ForeColor = Color.White;
             BCode.ForeColor = Color.White;
-
             RCode.BackColor = Color.FromArgb(51, 51, 51);
             GCode.BackColor = Color.FromArgb(51, 51, 51);
             BCode.BackColor = Color.FromArgb(51, 51, 51);
-
             ClearSavedColorbtn.ForeColor = Color.White;
             ClearSavedColorbtn.BackColor = Color.FromArgb(51, 51, 51);
             ClearSavedColorbtn.Text = "D";
             ClearSavedColorbtn.Image = null;
-
             colorlistbox.ForeColor = Color.White;
             colorlistbox.BackColor = Color.FromArgb(32, 32, 32);
-
             button2.ForeColor = Color.White;
             button2.BackColor = Color.FromArgb(51, 51, 51);
             savecolorbtn.ForeColor = Color.White;
             savecolorbtn.BackColor = Color.FromArgb(51, 51, 51);
             savecolorbtn.FlatStyle = FlatStyle.Standard;
-
             CloseApplication.ForeColor = Color.White;
             CloseApplication.BackColor = Color.FromArgb(51, 51, 51);
             CloseApplication.FlatStyle = FlatStyle.Standard;
-            EnableDarkModeCheckbox.ForeColor = Color.White;
             pastepicturebtn.FlatStyle = FlatStyle.Standard;
             pastepicturebtn.ForeColor = Color.White;
             pastepicturebtn.BackColor = Color.FromArgb(51, 51, 51);
-         
         }
 
-        private void EnableDarkModeCheckbox_CheckedChanged(object sender, EventArgs e)
+
+
+
+
+
+
+
+
+
+        //All Application Settings:
+        public void Transparancy()
         {
-     
-            if(this.BackColor == Color.White)
-            {
-                ApplicationDarkMode();
-            }
-            else
-            {
-                Application.Restart();
-            }
-          
+            this.Opacity = 0.95;
         }
 
-        private void pastepicturebtn_Click(object sender, EventArgs e)
+        public void DisableTransparency()
         {
-            if(Clipboard.GetImage() == null)
-            {
-                MessageBox.Show("There is no image on the clipboard!", "Paste Info");
-            }
-            else
-            {
-                ColorPictureBox.Image = Clipboard.GetImage();
-            }
-
-            
+            this.Opacity = 1;
         }
 
         private void copyImageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -593,20 +504,36 @@ namespace Wizard_Color_Picker
             Clipboard.SetImage(ColorPictureBox.Image);
         }
 
-
-        private void ColorPickerUI_KeyPress(object sender, KeyPressEventArgs e)
+        private void DelColorListbtn_Click(object sender, EventArgs e)
         {
+            try
+            {
+                colorlistbox.Items.RemoveAt(colorlistbox.SelectedIndex);
 
-            MessageBox.Show("test");
+            }
+            catch
+            {
+                MessageBox.Show("no color selected");
+            }
         }
-    }
-    public class CheckBoxStatus
-    {
-        public bool CheckBoxWelcome { get; set; }
-        public bool CheckBox2 { get; set; }
-        public bool CheckBox3 { get; set; }
 
-        public bool EnableDarkMode { get; set; }
+        private void Settingsbtn_Click(object sender, EventArgs e)
+        {
+            Form OpenSettings = new AppSettings();
+
+            OpenSettings.ShowDialog();
+        }
+
+        public void RestoreWindowSize()
+        {
+            Size = new Size(643, 470);
+        }
+
+        public void DeleteImage()
+        {
+            ColorPictureBox.Image = null;
+            ColorPictureBox.Size = new Size(400, 300);
+        }
     }
 }
 
