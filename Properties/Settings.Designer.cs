@@ -46,5 +46,17 @@ namespace Wizard_Color_Picker.Properties {
                 this["DarkMode"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double ImageSizeInMb {
+            get {
+                return ((double)(this["ImageSizeInMb"]));
+            }
+            set {
+                this["ImageSizeInMb"] = value;
+            }
+        }
     }
 }

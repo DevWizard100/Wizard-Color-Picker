@@ -28,296 +28,317 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppSettings));
-            this.button1 = new System.Windows.Forms.Button();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.TransprencyONbtn = new System.Windows.Forms.Button();
-            this.TransprancyOFFbtn = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.CloseWindowbtn = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.ResetWindowSizebtn = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.DeleteImagebtn = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.DarkModeONbtn = new System.Windows.Forms.Button();
-            this.DarkModeOFFbtn = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            button1 = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            TransprencyONbtn = new Button();
+            TransprancyOFFbtn = new Button();
+            panel1 = new Panel();
+            CloseWindowbtn = new Button();
+            label3 = new Label();
+            ResetWindowSizebtn = new Button();
+            label4 = new Label();
+            label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
+            label8 = new Label();
+            DeleteImagebtn = new Button();
+            label9 = new Label();
+            label10 = new Label();
+            pictureBox1 = new PictureBox();
+            label11 = new Label();
+            DarkModeONbtn = new Button();
+            DarkModeOFFbtn = new Button();
+            label12 = new Label();
+            label13 = new Label();
+            AppSizelbl = new Label();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // button1
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button1.Location = new System.Drawing.Point(10, 56);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(131, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Clear AppData";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            button1.FlatStyle = FlatStyle.System;
+            button1.Location = new Point(10, 56);
+            button1.Name = "button1";
+            button1.Size = new Size(131, 23);
+            button1.TabIndex = 0;
+            button1.Text = "Clear AppData";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(12, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Manage saved app data";
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(12, 13);
+            label1.Name = "label1";
+            label1.Size = new Size(132, 15);
+            label1.TabIndex = 1;
+            label1.Text = "Manage saved app data";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(12, 92);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 15);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Appearance";
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(12, 124);
+            label2.Name = "label2";
+            label2.Size = new Size(70, 15);
+            label2.TabIndex = 2;
+            label2.Text = "Appearance";
             // 
             // TransprencyONbtn
             // 
-            this.TransprencyONbtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.TransprencyONbtn.Location = new System.Drawing.Point(11, 135);
-            this.TransprencyONbtn.Name = "TransprencyONbtn";
-            this.TransprencyONbtn.Size = new System.Drawing.Size(75, 23);
-            this.TransprencyONbtn.TabIndex = 8;
-            this.TransprencyONbtn.Text = "ON";
-            this.TransprencyONbtn.UseVisualStyleBackColor = true;
-            this.TransprencyONbtn.Click += new System.EventHandler(this.TransprencyONbtn_Click);
+            TransprencyONbtn.FlatStyle = FlatStyle.System;
+            TransprencyONbtn.Location = new Point(11, 167);
+            TransprencyONbtn.Name = "TransprencyONbtn";
+            TransprencyONbtn.Size = new Size(75, 23);
+            TransprencyONbtn.TabIndex = 8;
+            TransprencyONbtn.Text = "ON";
+            TransprencyONbtn.UseVisualStyleBackColor = true;
+            TransprencyONbtn.Click += TransprencyONbtn_Click;
             // 
             // TransprancyOFFbtn
             // 
-            this.TransprancyOFFbtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.TransprancyOFFbtn.Location = new System.Drawing.Point(92, 135);
-            this.TransprancyOFFbtn.Name = "TransprancyOFFbtn";
-            this.TransprancyOFFbtn.Size = new System.Drawing.Size(75, 23);
-            this.TransprancyOFFbtn.TabIndex = 9;
-            this.TransprancyOFFbtn.Text = "OFF";
-            this.TransprancyOFFbtn.UseVisualStyleBackColor = true;
-            this.TransprancyOFFbtn.Click += new System.EventHandler(this.TransprancyOFFbtn_Click);
+            TransprancyOFFbtn.FlatStyle = FlatStyle.System;
+            TransprancyOFFbtn.Location = new Point(92, 167);
+            TransprancyOFFbtn.Name = "TransprancyOFFbtn";
+            TransprancyOFFbtn.Size = new Size(75, 23);
+            TransprancyOFFbtn.TabIndex = 9;
+            TransprancyOFFbtn.Text = "OFF";
+            TransprancyOFFbtn.UseVisualStyleBackColor = true;
+            TransprancyOFFbtn.Click += TransprancyOFFbtn_Click;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel1.Controls.Add(this.CloseWindowbtn);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 345);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(285, 43);
-            this.panel1.TabIndex = 10;
+            panel1.BackColor = Color.WhiteSmoke;
+            panel1.Controls.Add(CloseWindowbtn);
+            panel1.Dock = DockStyle.Bottom;
+            panel1.Location = new Point(0, 378);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(281, 43);
+            panel1.TabIndex = 10;
             // 
             // CloseWindowbtn
             // 
-            this.CloseWindowbtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CloseWindowbtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.CloseWindowbtn.Location = new System.Drawing.Point(198, 9);
-            this.CloseWindowbtn.Name = "CloseWindowbtn";
-            this.CloseWindowbtn.Size = new System.Drawing.Size(75, 23);
-            this.CloseWindowbtn.TabIndex = 11;
-            this.CloseWindowbtn.Text = "OK";
-            this.CloseWindowbtn.UseVisualStyleBackColor = true;
-            this.CloseWindowbtn.Click += new System.EventHandler(this.CloseWindowbtn_Click);
+            CloseWindowbtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            CloseWindowbtn.FlatStyle = FlatStyle.System;
+            CloseWindowbtn.Location = new Point(194, 9);
+            CloseWindowbtn.Name = "CloseWindowbtn";
+            CloseWindowbtn.Size = new Size(75, 23);
+            CloseWindowbtn.TabIndex = 11;
+            CloseWindowbtn.Text = "OK";
+            CloseWindowbtn.UseVisualStyleBackColor = true;
+            CloseWindowbtn.Click += CloseWindowbtn_Click;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 117);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 15);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Transparancy";
+            label3.AutoSize = true;
+            label3.Location = new Point(12, 149);
+            label3.Name = "label3";
+            label3.Size = new Size(89, 15);
+            label3.TabIndex = 11;
+            label3.Text = "Transparancy ▧";
             // 
             // ResetWindowSizebtn
             // 
-            this.ResetWindowSizebtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.ResetWindowSizebtn.Location = new System.Drawing.Point(189, 135);
-            this.ResetWindowSizebtn.Name = "ResetWindowSizebtn";
-            this.ResetWindowSizebtn.Size = new System.Drawing.Size(75, 23);
-            this.ResetWindowSizebtn.TabIndex = 12;
-            this.ResetWindowSizebtn.Text = "Reset";
-            this.ResetWindowSizebtn.UseVisualStyleBackColor = true;
-            this.ResetWindowSizebtn.Click += new System.EventHandler(this.ResetWindowSizebtn_Click);
+            ResetWindowSizebtn.FlatStyle = FlatStyle.System;
+            ResetWindowSizebtn.Location = new Point(189, 167);
+            ResetWindowSizebtn.Name = "ResetWindowSizebtn";
+            ResetWindowSizebtn.Size = new Size(75, 23);
+            ResetWindowSizebtn.TabIndex = 12;
+            ResetWindowSizebtn.Text = "Reset";
+            ResetWindowSizebtn.UseVisualStyleBackColor = true;
+            ResetWindowSizebtn.Click += ResetWindowSizebtn_Click;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(189, 117);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 15);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Restore Window";
+            label4.AutoSize = true;
+            label4.Location = new Point(189, 149);
+            label4.Name = "label4";
+            label4.Size = new Size(70, 15);
+            label4.TabIndex = 13;
+            label4.Text = "Re. Window";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(10, 225);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 15);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "About";
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(10, 257);
+            label5.Name = "label5";
+            label5.Size = new Size(40, 15);
+            label5.TabIndex = 14;
+            label5.Text = "About";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(10, 249);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(217, 15);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Open Source Software by DevWizard100";
+            label6.AutoSize = true;
+            label6.Location = new Point(10, 281);
+            label6.Name = "label6";
+            label6.Size = new Size(217, 15);
+            label6.TabIndex = 15;
+            label6.Text = "Open Source Software by DevWizard100";
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(10, 265);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(179, 15);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Source Code avaliable on Github";
+            label7.AutoSize = true;
+            label7.Location = new Point(10, 297);
+            label7.Name = "label7";
+            label7.Size = new Size(179, 15);
+            label7.TabIndex = 16;
+            label7.Text = "Source Code avaliable on Github";
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(10, 281);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(78, 15);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "Version v1.0.4";
+            label8.AutoSize = true;
+            label8.Location = new Point(10, 313);
+            label8.Name = "label8";
+            label8.Size = new Size(78, 15);
+            label8.TabIndex = 17;
+            label8.Text = "Version v1.0.4";
             // 
             // DeleteImagebtn
             // 
-            this.DeleteImagebtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.DeleteImagebtn.Location = new System.Drawing.Point(189, 56);
-            this.DeleteImagebtn.Name = "DeleteImagebtn";
-            this.DeleteImagebtn.Size = new System.Drawing.Size(75, 23);
-            this.DeleteImagebtn.TabIndex = 18;
-            this.DeleteImagebtn.Text = "Delete";
-            this.DeleteImagebtn.UseVisualStyleBackColor = true;
-            this.DeleteImagebtn.Click += new System.EventHandler(this.DeleteImagebtn_Click);
+            DeleteImagebtn.FlatStyle = FlatStyle.System;
+            DeleteImagebtn.Location = new Point(189, 56);
+            DeleteImagebtn.Name = "DeleteImagebtn";
+            DeleteImagebtn.Size = new Size(75, 23);
+            DeleteImagebtn.TabIndex = 18;
+            DeleteImagebtn.Text = "Delete";
+            DeleteImagebtn.UseVisualStyleBackColor = true;
+            DeleteImagebtn.Click += DeleteImagebtn_Click;
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 38);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(109, 15);
-            this.label9.TabIndex = 19;
-            this.label9.Text = "Saved Color Codes:";
+            label9.AutoSize = true;
+            label9.Location = new Point(12, 38);
+            label9.Name = "label9";
+            label9.Size = new Size(109, 15);
+            label9.TabIndex = 19;
+            label9.Text = "Saved Color Codes:";
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(189, 38);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(67, 15);
-            this.label10.TabIndex = 20;
-            this.label10.Text = "Image Data";
+            label10.AutoSize = true;
+            label10.Location = new Point(189, 38);
+            label10.Name = "label10";
+            label10.Size = new Size(80, 15);
+            label10.TabIndex = 20;
+            label10.Text = "Image Data ◪";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(10, 299);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(42, 42);
-            this.pictureBox1.TabIndex = 21;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(10, 331);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(42, 42);
+            pictureBox1.TabIndex = 21;
+            pictureBox1.TabStop = false;
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(64, 326);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(42, 15);
-            this.label11.TabIndex = 22;
-            this.label11.Text = "@2023";
+            label11.AutoSize = true;
+            label11.Location = new Point(53, 358);
+            label11.Name = "label11";
+            label11.Size = new Size(42, 15);
+            label11.TabIndex = 22;
+            label11.Text = "@2023";
             // 
             // DarkModeONbtn
             // 
-            this.DarkModeONbtn.Location = new System.Drawing.Point(11, 189);
-            this.DarkModeONbtn.Name = "DarkModeONbtn";
-            this.DarkModeONbtn.Size = new System.Drawing.Size(75, 23);
-            this.DarkModeONbtn.TabIndex = 23;
-            this.DarkModeONbtn.Text = "ON";
-            this.DarkModeONbtn.UseVisualStyleBackColor = true;
-            this.DarkModeONbtn.Click += new System.EventHandler(this.DarkModeONbtn_Click);
+            DarkModeONbtn.FlatStyle = FlatStyle.System;
+            DarkModeONbtn.Location = new Point(11, 221);
+            DarkModeONbtn.Name = "DarkModeONbtn";
+            DarkModeONbtn.Size = new Size(75, 23);
+            DarkModeONbtn.TabIndex = 23;
+            DarkModeONbtn.Text = "ON";
+            DarkModeONbtn.UseVisualStyleBackColor = true;
+            DarkModeONbtn.Click += DarkModeONbtn_Click;
             // 
             // DarkModeOFFbtn
             // 
-            this.DarkModeOFFbtn.Location = new System.Drawing.Point(92, 189);
-            this.DarkModeOFFbtn.Name = "DarkModeOFFbtn";
-            this.DarkModeOFFbtn.Size = new System.Drawing.Size(75, 23);
-            this.DarkModeOFFbtn.TabIndex = 24;
-            this.DarkModeOFFbtn.Text = "OFF";
-            this.DarkModeOFFbtn.UseVisualStyleBackColor = true;
-            this.DarkModeOFFbtn.Click += new System.EventHandler(this.DarkModeOFFbtn_Click);
+            DarkModeOFFbtn.FlatStyle = FlatStyle.System;
+            DarkModeOFFbtn.Location = new Point(92, 221);
+            DarkModeOFFbtn.Name = "DarkModeOFFbtn";
+            DarkModeOFFbtn.Size = new Size(75, 23);
+            DarkModeOFFbtn.TabIndex = 24;
+            DarkModeOFFbtn.Text = "OFF";
+            DarkModeOFFbtn.UseVisualStyleBackColor = true;
+            DarkModeOFFbtn.Click += DarkModeOFFbtn_Click;
             // 
             // label12
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(12, 171);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(65, 15);
-            this.label12.TabIndex = 25;
-            this.label12.Text = "Dark Mode";
+            label12.AutoSize = true;
+            label12.Location = new Point(12, 203);
+            label12.Name = "label12";
+            label12.Size = new Size(78, 15);
+            label12.TabIndex = 25;
+            label12.Text = "Dark Mode ◐";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(12, 83);
+            label13.Name = "label13";
+            label13.Size = new Size(68, 15);
+            label13.TabIndex = 26;
+            label13.Text = "App Cache:";
+            // 
+            // AppSizelbl
+            // 
+            AppSizelbl.AutoSize = true;
+            AppSizelbl.Location = new Point(12, 99);
+            AppSizelbl.Name = "AppSizelbl";
+            AppSizelbl.Size = new Size(158, 15);
+            AppSizelbl.TabIndex = 27;
+            AppSizelbl.Text = "App Storage: Loading Failed!";
             // 
             // AppSettings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(285, 388);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.DarkModeOFFbtn);
-            this.Controls.Add(this.DarkModeONbtn);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.DeleteImagebtn);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.ResetWindowSizebtn);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.TransprancyOFFbtn);
-            this.Controls.Add(this.TransprencyONbtn);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "AppSettings";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "App Settings";
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(281, 421);
+            Controls.Add(AppSizelbl);
+            Controls.Add(label13);
+            Controls.Add(label12);
+            Controls.Add(DarkModeOFFbtn);
+            Controls.Add(DarkModeONbtn);
+            Controls.Add(label11);
+            Controls.Add(pictureBox1);
+            Controls.Add(label10);
+            Controls.Add(label9);
+            Controls.Add(DeleteImagebtn);
+            Controls.Add(label8);
+            Controls.Add(label7);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(ResetWindowSizebtn);
+            Controls.Add(label3);
+            Controls.Add(panel1);
+            Controls.Add(TransprancyOFFbtn);
+            Controls.Add(TransprencyONbtn);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(button1);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            Name = "AppSettings";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "App Settings";
+            Load += AppSettings_Load;
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Button button1;
-        private BindingSource bindingSource1;
         private Label label1;
         private Label label2;
         private Button TransprencyONbtn;
@@ -339,5 +360,7 @@
         private Button DarkModeONbtn;
         private Button DarkModeOFFbtn;
         private Label label12;
+        private Label label13;
+        private Label AppSizelbl;
     }
 }

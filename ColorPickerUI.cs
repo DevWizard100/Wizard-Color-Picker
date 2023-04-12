@@ -1,12 +1,5 @@
-using System.Windows.Forms;
-using System.Drawing;
-using System.Collections;
-using System.Drawing.Drawing2D;
 using Newtonsoft.Json;
-using System.Drawing.Text;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Diagnostics.Tracing;
+using System.Windows.Forms;
 
 namespace Wizard_Color_Picker
 {
@@ -25,7 +18,7 @@ namespace Wizard_Color_Picker
             {
                 g.CopyFromScreen(0, 0, 0, 0, ColorPictureBox.Size);
             }
-            
+
             //save Window Postion
             this.FormClosing += MyForm_FormClosing;
             addcodetext();
@@ -34,7 +27,7 @@ namespace Wizard_Color_Picker
             // Opacity-Einstellung aus den Anwendungseinstellungen laden
             this.Opacity = Properties.Settings.Default.Opacity;
 
-            if(Properties.Settings.Default.DarkMode == 1)
+            if (Properties.Settings.Default.DarkMode == 1)
             {
                 ApplicationDarkMode();
             }
@@ -43,9 +36,9 @@ namespace Wizard_Color_Picker
 
         private void pictureBox1_MouseClick_1(object sender, MouseEventArgs e)
         {
-                // Get the color of the pixel that was clicked
-                Color pixelColor = ((Bitmap)ColorPictureBox.Image).GetPixel(e.X, e.Y);
-       
+            // Get the color of the pixel that was clicked
+            Color pixelColor = ((Bitmap)ColorPictureBox.Image).GetPixel(e.X, e.Y);
+
             int argb = pixelColor.ToArgb();
 
             // Convert the ARGB value to a HEX string
@@ -101,7 +94,7 @@ namespace Wizard_Color_Picker
             if (MyDialog.ShowDialog() == DialogResult.OK)
             {
                 // Set the text box fore color to the selected color
-                HEXCodeBox.Text = ToHex(MyDialog.Color); 
+                HEXCodeBox.Text = ToHex(MyDialog.Color);
 
                 ColorPreviewCanvas.BackColor = MyDialog.Color;
 
@@ -130,7 +123,7 @@ namespace Wizard_Color_Picker
             {
                 MessageBox.Show("Please choose a color first");
             }
-            
+
         }
 
         private void CopyHex_Click_1(object sender, EventArgs e)
@@ -163,7 +156,7 @@ namespace Wizard_Color_Picker
         {
             LoadWindowState();
 
-        
+
             // Überprüfen Sie, ob die JSON-Datei existiert
             if (File.Exists(jsonFilePath))
             {
@@ -180,44 +173,44 @@ namespace Wizard_Color_Picker
 
         // Speichere die Fenstergröße und -position in eine JSON-Datei
         private void SaveWindowState()
-         {
-        // Erstelle ein Fensterzustandsobjekt mit den aktuellen Eigenschaften
-        WindowState state = new WindowState()
         {
-            Size = this.Size,
-            Location = this.Location
-        };
+            // Erstelle ein Fensterzustandsobjekt mit den aktuellen Eigenschaften
+            WindowState state = new WindowState()
+            {
+                Size = this.Size,
+                Location = this.Location
+            };
 
-        // Serialisiere das Fensterzustandsobjekt in eine JSON-Zeichenfolge
-        string json = JsonConvert.SerializeObject(state);
+            // Serialisiere das Fensterzustandsobjekt in eine JSON-Zeichenfolge
+            string json = JsonConvert.SerializeObject(state);
 
-        // Schreibe die Größen in die Datei
-        File.WriteAllText("Settings/windowstate.json", json);
+            // Schreibe die Größen in die Datei
+            File.WriteAllText("Settings/windowstate.json", json);
         }
 
         // Lade die Fenstergröße und -position aus einer JSON-Datei
         private void LoadWindowState()
         {
-        // Prüfe, ob die Datei vorhanden ist
-        if (File.Exists("Settings/windowstate.json"))
-        {
-            // Lese die JSON-Zeichenfolge aus der Datei
-            string json = File.ReadAllText("Settings/windowstate.json");
+            // Prüfe, ob die Datei vorhanden ist
+            if (File.Exists("Settings/windowstate.json"))
+            {
+                // Lese die JSON-Zeichenfolge aus der Datei
+                string json = File.ReadAllText("Settings/windowstate.json");
 
-           
-            WindowState state = JsonConvert.DeserializeObject<WindowState>(json);
 
-          
-            this.Size = state.Size;
-            this.Location = state.Location;
-        }
+                WindowState state = JsonConvert.DeserializeObject<WindowState>(json);
+
+
+                this.Size = state.Size;
+                this.Location = state.Location;
+            }
         }
 
         // Eine Klasse für die Fenster Größe
         public class WindowState
         {
             public Size Size { get; set; }
-        public Point Location { get; set; }
+            public Point Location { get; set; }
         }
 
         // Fenstergröße Speichern Wenn das Programm Geschlossen wird
@@ -329,7 +322,7 @@ namespace Wizard_Color_Picker
         {
             DialogResult SaveMessage = MessageBox.Show("Save color code for later", "Save", MessageBoxButtons.OKCancel);
 
-            if (SaveMessage== DialogResult.OK)
+            if (SaveMessage == DialogResult.OK)
             {
                 colorlistbox.Items.Add(HEXCodeBox.Text);
             }
@@ -343,7 +336,7 @@ namespace Wizard_Color_Picker
             // Schreiben Sie die JSON-Zeichenfolge in eine Datei
             File.WriteAllText(jsonFilePath, jsonString);
 
-      
+
 
             // Opacity-Einstellung in den Anwendungseinstellungen speichern
             Properties.Settings.Default.Opacity = this.Opacity;
@@ -355,7 +348,7 @@ namespace Wizard_Color_Picker
         {
             DialogResult ClearMessage = MessageBox.Show("Are you sure you want to delete all stored color codes?", "Remove", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-            if(DialogResult.Yes == ClearMessage)
+            if (DialogResult.Yes == ClearMessage)
             {
                 colorlistbox.Items.Clear();
             }
@@ -430,8 +423,8 @@ namespace Wizard_Color_Picker
             DelColorListbtn.ForeColor = Color.White;
             DelColorListbtn.BackColor = Color.FromArgb(51, 51, 51);
             DelColorListbtn.FlatStyle = FlatStyle.Standard;
-            ColorPictureBox.BackColor = Color.FromArgb(51, 51, 51);
-            panel2.BackColor = Color.FromArgb(51, 51, 51); 
+            ColorPictureBox.BackColor = Color.FromArgb(255, 27, 27, 27);
+            panel2.BackColor = Color.FromArgb(255, 27, 27, 27);
             AppVersionlbl.ForeColor = Color.White;
             button2.Image = null;
             ColorDialogbtn.Image = null;
@@ -522,6 +515,24 @@ namespace Wizard_Color_Picker
             Form OpenSettings = new AppSettings();
 
             OpenSettings.ShowDialog();
+
+            //      // Bild aus PictureBox laden
+            //      Image image = ColorPictureBox.Image;
+            //
+            //      // Bild in Byte-Array umwandeln
+            //      byte[] byteArray;
+            //      using (MemoryStream stream = new MemoryStream())
+            //      {
+            //          image.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
+            //          byteArray = stream.ToArray();
+            //      }
+            //
+            //      // Größe in MB berechnen
+            //      double sizeInMb = byteArray.Length / 1000000.0;
+            //
+            //      // Größe in App-Einstellungen speichern
+            //      Properties.Settings.Default.ImageSizeInMb = sizeInMb;
+            //      Properties.Settings.Default.Save();
         }
 
         public void RestoreWindowSize()
@@ -533,6 +544,16 @@ namespace Wizard_Color_Picker
         {
             ColorPictureBox.Image = null;
             ColorPictureBox.Size = new Size(400, 300);
+        }
+
+        private void ColorPictureBox_MouseMove(object sender, MouseEventArgs e)
+        {
+            AppVersionlbl.Text = "X: " + e.X.ToString() + ", Y: " + e.Y.ToString();
+        }
+
+        private void ColorPictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            AppVersionlbl.Text = "App Version v1.0.4";
         }
     }
 }
